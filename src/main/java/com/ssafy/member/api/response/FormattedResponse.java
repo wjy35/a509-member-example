@@ -10,12 +10,14 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class FormattedResponse {
-    @Singular("meta")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Map<String,Object> meta;
 
-    @Singular("documents")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Map<String,Object> documents;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String status;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String message;
+
+    @Singular("result")
+    private Map<String,Object> result;
 
 }
